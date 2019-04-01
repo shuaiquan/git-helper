@@ -1,0 +1,28 @@
+{
+  "name": "git-helper",
+  "version": "0.1.0",
+  "description": "this is a package for using git in Node",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuaiquan/git-helper.git"
+  },
+  "keywords": [
+    "git",
+    "node"
+  ],
+  "author": "shuaiquan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuaiquan/git-helper/issues"
+  },
+  "homepage": "https://github.com/shuaiquan/git-helper#readme",
+  "devDependencies": {
+    "@types/node": "^11.12.2",
+    "typescript": "^3.4.1"
+  }
+}
