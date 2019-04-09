@@ -1,6 +1,6 @@
 import rimraf = require('rimraf');
 
-async function  rmGit(url: string) {
+async function rmGit(url: string) {
     return new Promise((resolve, reject) => {
         rimraf(`${url}/.git`, (err) => {
             if(err) {
@@ -9,7 +9,7 @@ async function  rmGit(url: string) {
                 resolve();
             }
         });
-    })
+    });
 }
 
 export default rmGit;
