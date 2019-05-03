@@ -12,12 +12,12 @@ interface CloneParams {
     dest?: string;
     branch?: string;
 }
- 
+
 async function clone(params: CloneParams) {
     const {
         url,
-        dest = DEFUALT_DEST,
         name,
+        dest = DEFUALT_DEST,
         branch = MASTER_BRANCH,
     } = params;
 
