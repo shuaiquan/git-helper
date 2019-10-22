@@ -9,15 +9,13 @@ const MASTER_BRANCH = 'master';
 const PROJECT_NAME_RE = /(?<=\/)[^\/]*(?=\.git)/g;
 
 interface CloneParams {
-    url: string;
-    name?: string;
-    dest?: string;
-    branch?: string;
+    name: string;
+    dest: string;
+    branch: string;
 }
 
-async function clone(params: CloneParams) {
+async function clone(url: string, params: Partial<CloneParams> = {}) {
     const {
-        url,
         name,
         dest = DEFUALT_DEST,
         branch = MASTER_BRANCH,
