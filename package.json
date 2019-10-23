@@ -1,11 +1,12 @@
 {
-  "name": "git-helper",
+  "name": "@s7n/git-helper",
   "version": "0.1.0",
   "description": "this is a package for using git in Node",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "test"
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,14 @@
     "url": "https://github.com/shuaiquan/git-helper/issues"
   },
   "homepage": "https://github.com/shuaiquan/git-helper#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@types/node": "^11.12.2",
-    "@types/rimraf": "^2.0.2",
     "typescript": "^3.4.1"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.0"
   }
 }
