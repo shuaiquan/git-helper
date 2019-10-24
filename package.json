@@ -1,6 +1,6 @@
 {
   "name": "@s7n/git-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "this is a package for using git in Node",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
