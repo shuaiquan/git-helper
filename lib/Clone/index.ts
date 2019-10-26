@@ -26,7 +26,7 @@ async function clone(url: string, params: Partial<CloneParams> = {}) {
         return Promise.reject(new Error(SELF_ERROR.PROJECT_NOT_MATCH(url)));
     }
 
-    return new Promise((resolve: (value: string) => void, reject) => {
+    return new Promise((resolve: (value: string) => void, reject: (err: Error) => void) => {
         const destUrl = path.resolve(process.cwd(), dest);
         exec(`cd ${destUrl}`, (err) => {
             if (err) {
@@ -36,7 +36,7 @@ async function clone(url: string, params: Partial<CloneParams> = {}) {
         });
     }).then((destUrl) => {
         const projectName = name || urlName![0];
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve: (value: string) => void, reject: (err: Error) => void) => {
             const cmdStr = `${GIT_CLONE} -b ${branch} ${url} ${projectName}`;
             exec(cmdStr, (err) => {
                 if (err) {

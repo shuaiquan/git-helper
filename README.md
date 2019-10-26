@@ -14,10 +14,10 @@ clone(https://github.com/facebook/react.git, { name: 'my-react-project' });
 
 #### Param
 ```
-clone(param);
+clone(url, [param]);
 
+- url: git 地址
 - param
-    - url: git 地址
     - [name]: 对 clone 到本地项目的重命名（默认：git repo 名称）
     - [dest]: 保存本地路径（默认：当前文件夹）
     - [branch]: 拉取的分支（默认：master）
@@ -44,5 +44,5 @@ rmGit(destUrl);
 
 #### Return
 ```
-void
+destUrl (string): 文件目录
 ```
