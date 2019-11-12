@@ -2,7 +2,7 @@
 
 ## 使用
 ```
-const { clone, rmGit, tag } = require('@s7n/git-helper');
+const { clone, rmGit, tag, branch } = require('@s7n/git-helper');
 ```
 
 ## API
@@ -176,3 +176,118 @@ tag.pushAll()
 
 #### Return
 无 (void)
+
+---
+
+### `branch`
+对分支的操作集合
+
+### `branch.current`
+列出标签
+#### Example
+```
+branch.current();
+// master
+```
+
+#### Param
+void
+
+#### Return
+```
+branch (string): 当前分支名
+```
+
+
+### `branch.create`
+创建分支
+#### Example
+```
+tag.create('new-branch1')
+// new-branch1
+
+tag.create('new-branch2', { checkout: true });
+// new-branch2
+```
+
+#### Param
+```
+create(branch, [param]);
+
+- branch (string): 分支名
+- param :
+    - checkout (boolean): 是否同时切换分支。默认： false
+```
+
+
+#### Return
+```
+branch (string): 分支名
+```
+
+### `branch.delete`
+删除本地分支
+#### Example
+```
+branch.delete('new-branch1')
+// new-branch1
+// equal to git branch -d new-branch1
+
+branch.delete('new-branch2', { force: true});
+// new-branch2
+// equal to git branch -D new-branch2
+```
+
+#### Param
+```
+delete(branch, [param]);
+
+- branch (string): 分支名
+- param
+    - force (boolean): 是否强制删除分支。默认: false
+```
+
+#### Return
+```
+branch (string): 删除的分支名
+```
+
+### `branch.deleteRemote`
+删除远程分支
+#### Example
+```
+branch.deleteRemote('new-branch1')
+// new-branch1
+```
+
+#### Param
+```
+deleteRemote(branch);
+
+- branch (string): 分支名
+```
+
+#### Return
+```
+branch (string): 删除的分支名
+```
+
+### `branch.push`
+将当前分支推送到远程
+#### Example
+```
+branch.push('new-branch1')
+// new-branch1
+```
+
+#### Param
+```
+push(branch);
+
+- branch (string): 推送到远程的分支名
+```
+
+#### Return
+```
+branch (string): 推送到远程的分支名
+```
