@@ -1,4 +1,4 @@
-export { list } from './list';
+export { current } from './list';
 export { create } from './create';
 export {
     deleteBranch as delete,

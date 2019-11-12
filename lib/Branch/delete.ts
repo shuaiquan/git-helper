@@ -1,6 +1,7 @@
 import { exec, execSync } from 'child_process';
+import { current } from './list';
 
-const BRANCH_DELETE = 'git branch -d';
+const BRANCH_DELETE = 'git branch';
 const BRANCH_DELETE_REMOTE = 'git push origin :';
 
 interface DeleteParam {
@@ -8,6 +9,10 @@ interface DeleteParam {
 }
 
 export function deleteBranch(branch: string, param: DeleteParam = { force: false }) {
+    const currentBranch = current();
+    if (currentBranch === branch) {
+        throw new Error('please don\'t delete current branch');
+    }
     const forceOption = param.force ? '-D' : '-d';
     const cmdStr = `${BRANCH_DELETE} ${forceOption} ${branch}`;
     execSync(cmdStr, { encoding: 'utf8' });
