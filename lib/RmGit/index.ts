@@ -1,14 +1,13 @@
-import rimraf = require('rimraf');
+import { deleteDir } from './helper';
 
 async function rmGit(destUrl: string) {
     return new Promise((resolve: (valur: string) => void, reject: (err: Error) => void) => {
-        rimraf(`${destUrl}/.git`, (err) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(destUrl);
-            }
-        });
+        try {
+            deleteDir(`${destUrl}/.git`);
+            resolve(destUrl);
+        } catch (err) {
+            reject(err);
+        }
     });
 }
 
